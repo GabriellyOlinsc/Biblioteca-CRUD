@@ -12,5 +12,4 @@ export class AuthorDTO{
     @MinLength(2)
     @MaxLength(100)
     readonly surname: string;
-    
 }
