@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
-import { BooksController } from './Controllers/books/books.controller';
+import { BooksController } from './Book/books.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { BooksService } from './Services/books/books.service';
-import { BookRepository } from './Mongo/Repository/book.repository';
-import { BookSchema } from './Mongo/Schemas/book.schema';
+import { BooksService } from './Book/books.service';
+import { BookRepository } from './Book/book.repository';
+import { BookSchema } from './Book/Schemas/book.schema';
 
 @Module({
   imports: [
     MongooseModule.forRoot('mongodb+srv://admin:cxFKdlZXJtxE9FT5@cluster0.oidkrao.mongodb.net/?retryWrites=true&w=majority'),
     MongooseModule.forFeature([
-      {name: 'book', schema : BookSchema}//definição do primeiro schema
+      {name: 'book', schema : BookSchema}
     ])
   ],
   controllers: [BooksController],

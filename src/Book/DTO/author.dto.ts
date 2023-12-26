@@ -4,12 +4,12 @@ export class AuthorDTO{
     @IsNotEmpty()
     @IsString()
     @MinLength(2)
-    @MaxLength(100)
+    @MaxLength(80)
     readonly name: string;
     
     @IsNotEmpty()
     @IsString()
     @MinLength(2)
-    @MaxLength(100)
+    @MaxLength(80)
     readonly surname: string;
 }

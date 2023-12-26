@@ -1,19 +1,18 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import {BookDTO} from '../../DTO/books.dto';
-import { BooksService } from 'src/Services/books/books.service';
-import { Book } from 'src/Mongo/Interfaces/book.interface';
+import {BookDTO} from './DTO/books.dto';
+import { BooksService } from './books.service';
+import { Book } from './Schemas/book.schema';
 
 @Controller('books')
 export class BooksController {
 
     constructor (
-        private readonly bookService: BooksService  //nova instancia da camada de serciço
+        private readonly bookService: BooksService
     ){}
 
     @Get()
     async getAllBooks():Promise<Book[]>{ 
         return await this.bookService.getAllBooks();
-        //a função getAllBooks precisa estar declarada no BookService
     }
 
     @Get('author/:authorName')
@@ -32,7 +31,7 @@ export class BooksController {
     } 
 
     @Post()
-    async saveBooks(@Body() newBook: BookDTO): Promise<Book>{ //retirei o Promise<
+    async saveBooks(@Body() newBook: BookDTO): Promise<Book>{ 
         return await this.bookService.saveBook(newBook);
     }
     

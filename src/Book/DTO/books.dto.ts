@@ -12,7 +12,7 @@ export class BookDTO{
     @IsNotEmpty()
     @Type(() => AuthorDTO)
     @ArrayMinSize(1)
-    @ValidateNested({each: true})  //valida a classe authorDTO também, onde cada autor deve ser validado 
+    @ValidateNested({each: true}) 
     readonly author: AuthorDTO[];
     
     @IsNotEmpty()
